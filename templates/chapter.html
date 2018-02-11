@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <style>
+            #container {
+                width:600px; 
+                margin:0 auto; 
+                padding: 50px; 
+                font-size:16px; 
+                font-family: helvetica, arial;
+                background-color: rgb(243, 237, 230);
+            }
+            a {
+                text-decoration: none;
+                color:#6295b5;
+            } 
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <h1>{{.Title}}</h1>
+            {{range .Paragraphs }}
+                <p>{{.}}</p>
+            {{end}}
+            <ul>
+                {{range .Options}}
+                <li><a href="/{{ .Arc }}">{{.Text}}</a></li>
+                {{end}}
+            </ul>
+            {{if .Options}} 
+            {{else}}
+                <h3 style="text-align: center">The End</h3>
+            {{end}} 
+        </div>
+    </body>
+</html>
